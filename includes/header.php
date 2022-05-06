@@ -13,6 +13,9 @@
                 <?php
                 if (isset($_SESSION['email'])) {
                     ?>
+                    <li><a href = "messages.php"><span class = "glyphicon glyphicon glyphicon-envelope"></span> Messages </a></li>
+                    <li><a href = "history.php"><span class = "glyphicon glyphicon-cloud"></span> History </a></li>
+                    <li><a href = "orders.php"><span class = "glyphicon glyphicon-briefcase"></span> Orders </a></li>
                     <li><a href = "cart.php"><span class = "glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
                     <li><a href = "settings.php"><span class = "glyphicon glyphicon-user"></span> Settings</a></li>
                     <li><a href = "logout.php"><span class = "glyphicon glyphicon-log-in"></span> Logout</a></li>

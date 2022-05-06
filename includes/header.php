@@ -19,7 +19,6 @@
                     <li><a href = "cart.php"><span class = "glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
                     <li><a href = "settings.php"><span class = "glyphicon glyphicon-user"></span> Settings</a></li>
                     <li><a href = "logout.php"><span class = "glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    ?>
                     <?php
                 } else {
                     ?>

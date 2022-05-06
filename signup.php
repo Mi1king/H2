@@ -17,7 +17,7 @@ if(isset($_SESSION['email'])){
     </head>
     <body>
         <?php
-        require 'includes/header.php';
+        include 'includes/header.php';
         ?>
         <div class="container-fluid decor_bg" id="content">
             <div class="row">

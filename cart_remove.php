@@ -1,6 +1,9 @@
 <?php
 
 require 'includes/common.php';
+require 'project/console.php';
+// console_log("1");
+
 
 $item_id=$_GET["id"];
 $user_id=$_SESSION['user_id'];

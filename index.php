@@ -1,4 +1,5 @@
 <?php
+require 'project/project.php';
 require 'includes/common.php';
 
 if(isset($_SESSION['email'])){
@@ -8,7 +9,7 @@ if(isset($_SESSION['email'])){
 <html lang="en">
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Welcome | Life Style Store</title>
+        <title>Welcome | Health Hour</title>
         <link href="CSS/bootstrap.css" rel="stylesheet">
         <link href="CSS/style.css" rel="stylesheet">
         <script src="js/jquery.js"></script>
@@ -23,7 +24,7 @@ if(isset($_SESSION['email'])){
           <div class="container">
               <center>
               <div id="banner_content">
-                            <h1>We sell lifestyle.</h1>
+                            <h1>We sell health.</h1>
                             <p>Flat 40% OFF on premium brands </p>
                             <br/>
                             <a  href="products.php" class="btn btn-danger btn-lg active">Shop Now</a>

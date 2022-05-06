@@ -6,7 +6,7 @@ require 'includes/common.php';
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Products | Life Style Store</title>
+        <title>Products | Health Hour</title>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <script src="js/jquery.js"></script>
@@ -23,7 +23,7 @@ require 'includes/common.php';
 
             <!-- Jumbotron Header -->
             <div class="jumbotron home-spacer" id="products-jumbotron">
-                <h1>Welcome to our Lifestyle Store!</h1>
+                <h1>Welcome to Health Hour!</h1>
                 <p>We have the best cameras, watches and shirts for you. No need to hunt around, we have all in one place.</p>
 
             </div>

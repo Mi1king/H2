@@ -10,7 +10,7 @@ if(isset($_SESSION['email'])){
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login | Life Style Store</title>
+        <title>Login | Health Hour</title>
         <link href="CSS/bootstrap.min.css" rel="stylesheet">
         <link href="CSS/style.css" rel="stylesheet">
         <script src="js/jquery.js"></script>

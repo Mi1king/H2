@@ -1,8 +1,8 @@
 <div class="container" id="content">
     
 
-    <?php
-    
+ 
+<?php
     $user_id = $_SESSION['user_id'];
     $query = "SELECT
 	items.id AS ID, 
@@ -39,12 +39,19 @@ WHERE
     echo '<div class="jumbotron user" id="user-jumbotron">
         <h1>'.$name["NAME"].'</h1>
     </div>';
-    echo  "My Course"."<br />" ;
-     if (mysqli_num_rows($result) >= 1) {
+     
+echo "<div class='row'>
+		<div class='col-lg-6'>
+			<div class='card'>
+				<div class='card-body'>
+					<h5 class='glyphicon glyphicon-list-alt'>  My Course<br /></h5>
+					
+					<p class='card-text'>";
+                    if (mysqli_num_rows($result) >= 1) {
                                           
             
              while ($row = mysqli_fetch_array($result)) {                                                             
-                echo '<div class="col-md-3 col-sm-6 home-feature">
+                echo '<div class="col-md-12 col-sm-6 home-feature">
                     <div class="thumbnail">
                         <img src="img/' . $row["ID"] . '.jpg" />
                         <div class="caption">
@@ -53,7 +60,7 @@ WHERE
                             </h3>
                             <p>Time: ' . $row["TIME"] . ' </p>';
                  echo"<a href='course.php?id={$row['ID']}' class='btn btn-primary'>Start Course</a>";
-                 echo"<a href='course_time_change.php?id={$row['ID']}' class='btn btn-primary'>Change Time</a><a href='order_delete.php?id={$row['ID']}' class='btn btn-primary'>Delete</a>";
+                 
                  echo'
                                 </div>
                                 </div>
@@ -64,21 +71,7 @@ WHERE
                         } else {
                             echo "No Courses";
                         }
-    
-                        
-    
-    
-
-?>
-<?php
-    
-echo "<div class='row'>
-		<div class='col-lg-6'>
-			<div class='card'>
-				<div class='card-body'>
-					<h3 class='card-title'>My Course<br /></h3>
-					<h4 class='card-subtitle mb-3'>这是卡片的幅标题</h4>
-					<p class='card-text'>这是卡片的文本内容，需要添加一个card-text的class</p>
+         echo"           </p>
 					
 				</div>
 			</div>
@@ -87,18 +80,25 @@ echo "<div class='row'>
 		
 
 		
-echo "		<div class='col-lg-4'>
+echo "		<div class='row mt-8'>
+		<div class='col-lg-6''>
 			<div class='card'>
-				<div class='card-header'>这是卡片的头部，也叫页眉</div>
+				
+				<div class='card-body'>
+					<h5 class='glyphicon glyphicon-user'>  Account Information</h5>					
+				</div>
 				<ul class='list-group list-group-flush'>
-					<li class='list-group-item'>这是列表的文字</li>
-					<li class='list-group-item'>这是列表的文字</li>
-					<li class='list-group-item'>这是列表的文字</li>
+					<li class='list-group-item'>User Name:".$name["NAME"]."</li>
+					<li class='list-group-item'>Email:".$name["EMAIL"]."</li>
+					<li class='list-group-item'>Contact:".$name["CONTACT"]."</li>
+                    <li class='list-group-item'>City:".$name["CITY"]."</li>
+                    <li class='list-group-item'>Address:".$name["ADDRESS"]."</li>
 				</ul>
-				<div class='card-footer'>这是卡片的底部，也叫页脚</div>
+				<a href='template/_reset_psw.php' class='card-link btn btn-primary'>Manage</a>
 			</div>
 		</div>
-	</div>";
+	</div>
+";
 ?>  
     
 </div>

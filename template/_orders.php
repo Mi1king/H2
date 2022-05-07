@@ -11,28 +11,21 @@
                 items.`name`, 
                 items.price, 
                 items.category, 
+                items.time, 
+                users_items.user_id, 
                 coaches.`name` AS coachName, 
-                users_items.course_status, 
-                users_items.time, 
-                coaches.id AS coachId
+                coaches.id AS coachId, 
+                users_items.course_status
             FROM
                 items
                 INNER JOIN
-                coaches_items
-                ON 
-                    items.id = coaches_items.item_id
-                INNER JOIN
-                coaches
-                ON 
-                    coaches_items.coach_id = coaches.id
-                INNER JOIN
                 users_items
                 ON 
-                    items.id = users_items.item_id
+                    items.id = users_items.item_id,
+                coaches
             WHERE
-                coaches_items.`status` = 'Confirmed' AND
+                users_items.`status` = 'Confirmed' AND
                 users_items.user_id = '$user_id'";
-                // $query = "SELECT items.price AS Price, items.id, items.name AS Name FROM users_items JOIN items ON users_items.item_id = items.id WHERE users_items.user_id='$user_id' and status='Added to cart'";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 if (mysqli_num_rows($result) >= 1) {
                 ?>

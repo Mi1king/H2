@@ -12,7 +12,7 @@ $result = mysqli_query($con, $query)or die($mysqli_error($con));
 $num = mysqli_num_rows($result);
 // If the email and password are not present in the database, the mysqli_num_rows returns 0, it is assigned to $num.
 if ($num == 0) {
-  $error = "<span class='red'>Please enter correct E-mail id and Password</span>";
+  $error = "<span class='red'>Invalid login, please try again</span>";
   header('location: login.php?error=' . $error);
 } else {  
   $row = mysqli_fetch_array($result);

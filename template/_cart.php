@@ -2,7 +2,6 @@
     <div class="row decor_bg">
         <div class="col-md-6 col-md-offset-3">
             <table class="table table-striped">
-
                 <!--show table only if there are items added in the cart-->
                 <?php
                 $sum = 0;
@@ -17,7 +16,7 @@
                             <th>Item Number</th>
                             <th>Item Name</th>
                             <th>Price</th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,10 +24,24 @@
                         while ($row = mysqli_fetch_array($result)) {
                             $sum += $row["Price"];
                             $id .= $row["id"] . ", ";
-                            echo "<tr><td>" . "#" . $row["id"] . "</td><td>" . $row["Name"] . "</td><td>Rs " . $row["Price"] . "</td><td><a href='cart_remove.php?id={$row['id']}' class='remove_item_link'> Remove</a></td></tr>";
+                            echo "<tr>
+                            <td>" . "#" . $row["id"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["Name"] . "</a></td>
+                            <td>Rs " . $row["Price"] . "</td>
+                            <td>
+                            <a href='cart_remove.php?id={$row['id']}' class='remove_item_link'> Remove</a>
+                            </td>
+                            </tr>";
                         }
                         $id = rtrim($id, ", ");
-                        echo "<tr><td></td><td>Total</td><td>Rs " . $sum . "</td><td><a href='success.php?itemsid=" . $id . "' class='btn btn-primary'>Create Order</a></td></tr>";
+                        echo "<tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td>Rs " . $sum . "</td>
+                        <td>
+                        <a href='success.php?itemsid=" . $id . "' class='btn btn-primary'>Create Order</a>
+                        </td>
+                        </tr>";
                         ?>
                     </tbody>
                 <?php

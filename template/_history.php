@@ -50,7 +50,7 @@
                                 echo '<p> <a href="cart_add.php?id='. $row["id"] . '" class="btn btn-primary btn-block" name="add" value="add">Add to cart</a></p>';
                             }
                             echo "
-                            <a href='history_delete.php?id={$row['id']}' class='btn btn-primary'>Delete</a>
+                            <a href='history_delete.php?id={$row['id']}' class='btn btn-primary btn-block'>Delete</a>
                             </td>
                             </tr>";
                         }

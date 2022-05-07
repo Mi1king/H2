@@ -11,15 +11,26 @@
                 items.`name`, 
                 items.price, 
                 items.category, 
-                users_items.course_status
+                coaches.`name` AS coachName, 
+                users_items.course_status, 
+                users_items.time, 
+                coaches.id AS coachId
             FROM
-                users_items
-                INNER JOIN
                 items
+                INNER JOIN
+                coaches_items
                 ON 
-                    users_items.item_id = items.id
+                    items.id = coaches_items.item_id
+                INNER JOIN
+                coaches
+                ON 
+                    coaches_items.coach_id = coaches.id
+                INNER JOIN
+                users_items
+                ON 
+                    items.id = users_items.item_id
             WHERE
-                users_items.`status` = 'Confirmed' AND
+                coaches_items.`status` = 'Confirmed' AND
                 users_items.user_id = '$user_id'";
                 // $query = "SELECT items.price AS Price, items.id, items.name AS Name FROM users_items JOIN items ON users_items.item_id = items.id WHERE users_items.user_id='$user_id' and status='Added to cart'";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
@@ -29,6 +40,8 @@
                         <tr>
                             <th>Item Number</th>
                             <th>Item Name</th>
+                            <th>Coach</th>
+                            <th>Time</th>
                             <th>Price</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -40,17 +53,22 @@
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
-                            <td>" . $row["name"] . "</td>
-                            <td>Rs " . $row["price"] . "</td>
-                            <td>" . $row["course_status"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["name"] . "</a></td>
+                            <td> <a href='coach.php?id={$row['coachId']}'>" . $row["coachName"] . "</a></td>
+                            <td>" . $row["time"] . "</td>
+                            <td>Rs " . $row["price"] . "</td>";
+                            if ($row["course_status"] == 'Finished') {
+                                echo "<td >" . $row["course_status"] . "</td>";
+                            } else {
+                                echo "<td  style='color: green;'>" . $row["course_status"] . "</td>";
+                            }
+                            echo "
                             <td>
                             <a href='course_time_change.php?id={$row['id']}' class='btn btn-primary'>Change Time</a>
                             <a href='course.php?id={$row['id']}' class='btn btn-primary'>Start Course</a>
                             </td>
                             </tr>";
                         }
-                        // $id = rtrim($id, ", ");
-                        // echo "<tr><td></td><td>Total</td><td>Rs " . $sum . "</td><td><a href='success.php?itemsid=" . $id . "' class='btn btn-primary'>Confirm Order</a></td></tr>";
                         ?>
                     </tbody>
                 <?php

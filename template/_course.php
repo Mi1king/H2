@@ -1,11 +1,11 @@
 <?php
-$course_name = $_GET['id'];
-$query = 'SELECT
+$id = $_GET['id'];
+$query = "SELECT
 items.*
 FROM
 items
 WHERE
-items.id = 1';
+items.id ='$id'";
 
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 if (mysqli_num_rows($result) >= 1) {

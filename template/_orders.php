@@ -49,7 +49,7 @@
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["name"] . "</a></td>
                             <td> <a href='coach.php?id={$row['coachId']}'>" . $row["coachName"] . "</a></td>
                             <td>" . $row["time"] . "</td>
-                            <td>Rs " . $row["price"] . "</td>";
+                            <td>" . $row["price"] . "</td>";
                             if ($row["course_status"] == 'Finished') {
                                 echo "<td >" . $row["course_status"] . "</td>";
                             } else {

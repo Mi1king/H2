@@ -3,8 +3,6 @@
     <!-- Jumbotron Header -->
     <div class="jumbotron home-spacer" id="products-jumbotron">
         <h1>Welcome to Health Hour!</h1>
-        <p>We have the best cameras, watches and shirts for you. No need to hunt around, we have all in one place.</p>
-
     </div>
     <hr>
 
@@ -37,7 +35,7 @@ GROUP BY
                     <a href='item.php?id={$row['id']}'><img src='img/" . $row['id'] . ".jpg'></a>
                         <div class='caption'>
                             <h3> " . $row["name"] . "</h3>
-                            <p>Price: Rs." . $row["price"] . " </p>";
+                            <p>Price:" . $row["price"] . " </p>";
                     if (!isset($_SESSION['email'])) {
                         echo '<p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p>';
                     } else {

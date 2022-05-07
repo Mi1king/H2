@@ -44,7 +44,7 @@ if (check_if_in_history($item_id)) {
                             echo "<tr>
                             <td> " . $row["name"] . "</td>
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'></a></td>
-                            <td>Rs " . $row["price"] . "</td>
+                            <td>" . $row["price"] . "</td>
                             <td>" . $row["time"] . "</td>
                             </tr>";
                         }

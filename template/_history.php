@@ -40,7 +40,7 @@
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["name"] . "</a></td>
-                            <td>Rs " . $row["price"] . "</td>
+                            <td>" . $row["price"] . "</td>
                             <td>";
                             //  action
                             if (check_if_added_to_cart($row["id"])) {

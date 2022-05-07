@@ -27,7 +27,7 @@
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["Name"] . "</a></td>
-                            <td>Rs " . $row["Price"] . "</td>
+                            <td>" . $row["Price"] . "</td>
                             <td>
                             <a href='cart_remove.php?id={$row['id']}' class='btn btn-primary btn-block'> Remove</a>
                             </td>
@@ -37,7 +37,7 @@
                         echo "<tr>
                         <td></td>
                         <td>Total</td>
-                        <td>Rs " . $sum . "</td>
+                        <td>" . $sum . "</td>
                         <td>
                         <a href='success.php?itemsid=" . $id . "' class='btn btn-primary btn-block'>Create Order</a>
                         </td>

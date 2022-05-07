@@ -12,25 +12,15 @@ $query = "UPDATE users_items SET status='Confirmed' WHERE user_id=" . $user_id .
 mysqli_query($con, $query) or die($mysqli_error($con));
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width = device-width, initial-scale = 1">
-        <title>Success |  Health Hour</title>
-        <link href="CSS/bootstrap.css" rel="stylesheet">
-        <link href="CSS/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <?php include 'includes/header.php'; ?>
-        <div class="container-fluid" id="content">
-            <div class="col-md-12">
-                <div class="jumbotron">
-                      <h3 align="center">Your order is confirmed. Thank you for shopping with us.</h3><hr>
-                    <p align="center">Click <a href="products.php">here</a> to purchase any other item.</p>
-                </div>
-            </div>
+<?php include 'nav.php'; ?>
+<div class="container-fluid" id="content">
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <h3 align="center">Your order is confirmed. Thank you for shopping with us.</h3>
+            <hr>
+            <p align="center">Click <a href="products.php">here</a> to purchase any other item.</p>
         </div>
-        <?php include("includes/footer.php");
-        ?>
-    </body>
-</html>
+    </div>
+</div>
+<?php include("footer.php");
+?>

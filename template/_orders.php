@@ -59,6 +59,7 @@
                             <td>
                             <a href='course_time_change.php?id={$row['id']}' class='btn btn-primary'>Change Time</a>
                             <a href='course.php?id={$row['id']}' class='btn btn-primary'>Start Course</a>
+                            <a href='order_delete.php?id={$row['id']}' class='btn btn-primary'>Delete</a>
                             </td>
                             </tr>";
                         }

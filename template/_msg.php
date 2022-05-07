@@ -2,8 +2,6 @@
     <div class="row decor_bg">
         <div class="col-md-6 col-md-offset-3">
             <table class="table table-striped">
-
-                <!--show table only if there are items added in the cart-->
                 <?php
                 $id = 0;
                 $user_id = $_SESSION['user_id'];
@@ -11,16 +9,25 @@
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 if (mysqli_num_rows($result) >= 1) {
                 ?>
-
+                    <thead>
+                        <tr>
+                            <th>Messages</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($result)) {
 
                             $id .= $row["id"] . ", ";
 
-                            echo  "Your Order" . "<br />" . "You have already reserved a " . $row["Name"];
+                            echo  "
+                            <tr>
+                            <td>
+                            <h4>Your Order</h4>" . "<br />" . "Course <a href='orders.php'>" . $row["Name"] . " </a>  has been reserved by you!
+                            </td>
+                            </tr>
+                            ";
                         }
-
                         ?>
                     </tbody>
                 <?php

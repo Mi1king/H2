@@ -20,7 +20,7 @@
             WHERE
                 item_history.user_id = '$user_id'
             ORDER BY
-                item_history.id ASC";
+                item_history.id DESC";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 // console_log(mysqli_num_rows($result));
                 if (mysqli_num_rows($result) >= 1) {

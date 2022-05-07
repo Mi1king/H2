@@ -94,7 +94,7 @@ echo "		<div class='row mt-8'>
                     <li class='list-group-item'>City:".$name["CITY"]."</li>
                     <li class='list-group-item'>Address:".$name["ADDRESS"]."</li>
 				</ul>
-				<a href='template/_reset_psw.php' class='card-link btn btn-primary'>Manage</a>
+				<a href='reset_psw.php' class='card-link btn btn-primary'>Manage</a>
 			</div>
 		</div>
 	</div>

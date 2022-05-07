@@ -6,6 +6,6 @@ if (!isset($_SESSION['email'])) {
 ?>
 
 <?php include 'nav.php'; ?>
-<?php include './template/_account.php'; ?>
+<?php include './template/_reset_psw.php'; ?>
 
 <?php include("footer.php"); ?>

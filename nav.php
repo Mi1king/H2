@@ -3,7 +3,7 @@
 
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login | Health Hour</title>
+        <title>Health Hour</title>
         <link href="CSS/bootstrap.css" rel="stylesheet">
         <link href="CSS/style.css" rel="stylesheet">
         <script src="js/jquery.js"></script>

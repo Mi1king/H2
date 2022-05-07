@@ -32,12 +32,12 @@ GROUP BY
             $result = mysqli_query($con, $query) or die(mysqli_error($con));
             if (mysqli_num_rows($result) >= 1) {
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<div class="col-md-3 col-sm-6 home-feature">
-                    <div class="thumbnail">
-                        <img src="img/' . $row["id"] . '.jpg" alt="">
-                        <div class="caption">
-                            <h3> ' . $row["name"] . '</h3>
-                            <p>Price: Rs.' . $row["price"] . ' </p>';
+                    echo "<div class='col-md-3 col-sm-6 home-feature'>
+                    <div class='thumbnail'>
+                    <a href='item.php?id={$row['id']}'><img src='img/" . $row['id'] . ".jpg'></a>
+                        <div class='caption'>
+                            <h3> " . $row["name"] . "</h3>
+                            <p>Price: Rs." . $row["price"] . " </p>";
                     if (!isset($_SESSION['email'])) {
                         echo '<p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p>';
                     } else {

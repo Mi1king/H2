@@ -29,6 +29,8 @@ include 'head.php';
                     include("admin/products.php");
                 }elseif (isset($_GET['users'])) {
                     include("admin/users.php");
+                }elseif (isset($_GET['certifications'])) {
+                    include("admin/certifications.php");
                 }
                 ?>
             </div>

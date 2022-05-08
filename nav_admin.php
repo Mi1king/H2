@@ -39,6 +39,11 @@
                     <i class="glyphicon glyphicon-user"></i> Users
                 </a>
             </li>
+            <li>
+                <a href="index_admin.php?certifications">
+                    <i class="glyphicon glyphicon-user"></i> Certifications
+                </a>
+            </li>
 
             <li>
                 <a href="logout_admin.php">

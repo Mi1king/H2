@@ -38,12 +38,7 @@ WHERE
 	users.id = '$user_id'";
     $result_user = mysqli_query($con, $query_user)or die(mysqli_error($con));
     $name = mysqli_fetch_array($result_user);
-    echo '
-    <div class="col-md-12 col-sm-6 home-feature">
-    <h4>'.$name["NAME"].'</h4>
-      <img class="rounded-circle" style="width: 20rem;" src='.$name["PHOTO"].'>
-        
-    </div>';
+    
      
 echo "<div class='row'>
 		<div class='col-lg-6'>
@@ -93,6 +88,10 @@ echo "		<div class='row mt-8'>
 					<h5 class='glyphicon glyphicon-user'>  Account Information</h5>					
 				</div>
 				<ul class='list-group list-group-flush'>
+                <li class='list-group-item'>
+                User Icon:
+                <img class='rounded-circle' style='width: 8rem;' src=".$name["PHOTO"]."></li>
+                
 					<li class='list-group-item'>User Name:".$name["NAME"]."</li>
 					<li class='list-group-item'>Email:".$name["EMAIL"]."</li>
 					<li class='list-group-item'>Contact:".$name["CONTACT"]."</li>

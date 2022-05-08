@@ -8,7 +8,7 @@
                 certifications.user_id,
                 users.`name`,
                 users.email,
-                certifications.apply_code
+                certifications.certification_code
             FROM
                 certifications
                 INNER JOIN users ON certifications.user_id = users.id 
@@ -36,7 +36,7 @@
                             <td>" . "#" . $row["user_id"] . "</td>
                             <td>" . $row["name"] . "</td>
                             <td>" . $row["email"] . "</td>
-                            <td>" . $row["apply_code"] . "</td>
+                            <td>" . $row["certification_code"] . "</td>
                             <td>
                             <a href='cer_approve.php?id={$row['id']}' class='btn btn-primary btn-block'>Approve</a>
                             <a href='cer_refuse.php?id={$row['id']}' class='btn btn-primary btn-block'>Refuse</a>

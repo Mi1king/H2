@@ -1,10 +1,10 @@
 <div class="container" id="content">
-    
 
- 
-<?php
-    $user_id = $_SESSION['user_id'];
-    $query = "SELECT
+
+
+	<?php
+	$user_id = $_SESSION['user_id'];
+	$query = "SELECT
 	items.id AS ID, 
     items.name AS NAME,
 	items.price, 
@@ -21,8 +21,8 @@ FROM
 WHERE
 	users_items.user_id = '$user_id' AND
 	users_items.`status` = 'Confirmed'";
-    $result = mysqli_query($con, $query)or die(mysqli_error($con));
-    $query_user = "SELECT
+	$result = mysqli_query($con, $query) or die(mysqli_error($con));
+	$query_user = "SELECT
 	*, 
 	users.`name` AS NAME, 
 	users.email AS EMAIL, 
@@ -36,22 +36,20 @@ FROM
 	users
 WHERE
 	users.id = '$user_id'";
-    $result_user = mysqli_query($con, $query_user)or die(mysqli_error($con));
-    $name = mysqli_fetch_array($result_user);
-    
-     
-echo "<div class='row'>
+	$result_user = mysqli_query($con, $query_user) or die(mysqli_error($con));
+	$name = mysqli_fetch_array($result_user);
+
+	?>
+	<div class='row'>
 		<div class='col-lg-6'>
 			<div class='card'>
 				<div class='card-body'>
-					<h5 class='glyphicon glyphicon-list-alt'>  My Course<br /></h5>
-					
-					<p class='card-text'>";
-                    if (mysqli_num_rows($result) >= 1) {
-                                          
-            
-             while ($row = mysqli_fetch_array($result)) {                                                             
-                echo '<div class="col-md-12 col-sm-6 home-feature">
+					<h5 class='glyphicon glyphicon-list-alt'> My Course<br /></h5>
+					<p class='card-text'>
+						<?php
+						if (mysqli_num_rows($result) >= 1) {
+							while ($row = mysqli_fetch_array($result)) {
+								echo '<div class="col-md-12 col-sm-6 home-feature">
                     <div class="thumbnail">
                         <img src="img/' . $row["ID"] . '.jpg" >
                         <div class="caption">
@@ -59,52 +57,58 @@ echo "<div class='row'>
                             
                             </h3>
                             <p>Time: ' . $row["TIME"] . ' </p>';
-                 echo"<a href='course.php?id={$row['ID']}' class='btn btn-primary'>Start Course</a>";
-                 
-                 echo'
-                                </div>
-                                </div>
-                                </div>' ;  
-                 
-                                }
-                                                  
-                        } else {
-                            echo "No Courses";
-                        }
-         echo"           </p>
-					
-				</div>
-			</div>
-		</div>";
+								echo "<a href='course.php?id={$row['ID']}' class='btn btn-primary'>Start Course</a>";
+						?>
 
-		
-
-		
-echo "		<div class='row mt-8'>
-		<div class='col-lg-6''>
-			<div class='card'>
-				
-				<div class='card-body'>
-					<h5 class='glyphicon glyphicon-user'>  Account Information</h5>					
 				</div>
-				<ul class='list-group list-group-flush'>
-                <li class='list-group-item'>
-                User Icon:
-                <img class='rounded-circle' style='width: 8rem;' src=".$name["PHOTO"]."></li>
-                
-					<li class='list-group-item'>User Name:".$name["NAME"]."</li>
-					<li class='list-group-item'>Email:".$name["EMAIL"]."</li>
-					<li class='list-group-item'>Contact:".$name["CONTACT"]."</li>
-                    <li class='list-group-item'>City:".$name["CITY"]."</li>
-                    <li class='list-group-item'>Address:".$name["ADDRESS"]."</li>
-				</ul>
-				<a href='manage.php' class='card-link btn btn-primary'>Manage</a>
-                <a href='reset_psw.php' class='card-link btn btn-primary'>Reset Password</a>
 			</div>
 		</div>
+<?php
+							}
+						} else {
+							echo "No Courses";
+						}
+?>
+</p>
+
 	</div>
-";
-?>  
-    
+</div>
 </div>
 
+
+
+<div class='row mt-8'>
+	<div class='col-lg-6'>
+		<div class=' card'>
+
+			<div class='card-body'>
+				<h5 class='glyphicon glyphicon-user'> Account Information</h5>
+			</div>
+			<ul class='list-group list-group-flush'>
+				<li class='list-group-item'>
+					Profile photo:
+					<?php
+					echo "<img class='rounded-circle' style='width: 8rem;' src=" . $name["PHOTO"] . "></li>
+					<li class='list-group-item'>User Name:" . $name["NAME"] . "</li>
+					<li class='list-group-item'>Email:" . $name["EMAIL"] . "</li>
+					<li class='list-group-item'>Contact:" . $name["CONTACT"] . "</li>
+                    <li class='list-group-item'>City:" . $name["CITY"] . "</li>
+                    <li class='list-group-item'>Address:" . $name["ADDRESS"] . "</li>";
+					?>
+			</ul>
+			<a href='manage.php' class='card-link btn btn-primary'>Manage</a>
+			<a href='certification_apply.php' class='card-link btn btn-primary'>Apply to be a coach</a>
+			<a href='reset_psw.php' class='card-link btn btn-primary'>Reset Password</a>
+		</div><br />
+		<dev>
+			<?php
+			if (isset($_GET['error'])) {
+				echo $_GET['error'];
+			}
+			?>
+		</dev>
+
+	</div>
+</div>
+
+</div>

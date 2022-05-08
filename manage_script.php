@@ -23,23 +23,23 @@ $new_address = mysqli_real_escape_string($con, $new_address);
 
 
 $query = "UPDATE  users SET name = '" . $new_name . "' 
-WHERE email = '" . $_SESSION['email'] . "'";
+WHERE users.id = '" . $_SESSION['user_id'] . "'";
 mysqli_query($con, $query) or die($mysqli_error($con));
 
 $query2 = "UPDATE  users SET email = '" . $new_email . "' 
-WHERE email = '" . $_SESSION['email'] . "'";
+WHERE users.id = '" . $_SESSION['user_id'] . "'";
 mysqli_query($con, $query2) or die($mysqli_error($con));
 
 $query3 = "UPDATE  users SET contact = '" . $new_contact . "' 
-WHERE email = '" . $_SESSION['email'] . "'";
+WHERE users.id = '" . $_SESSION['user_id'] . "'";
 mysqli_query($con, $query3) or die($mysqli_error($con));
 
 $query4 = "UPDATE  users SET city = '" . $new_city . "' 
-WHERE email = '" . $_SESSION['email'] . "'";
+WHERE users.id = '" . $_SESSION['user_id'] . "'";
 mysqli_query($con, $query4) or die($mysqli_error($con));
 
 $query5 = "UPDATE  users SET address = '" . $new_address . "' 
-WHERE email = '" . $_SESSION['email'] . "'";
+WHERE users.id = '" . $_SESSION['user_id'] . "'";
 mysqli_query($con, $query5) or die($mysqli_error($con));
 
 header('location: settings.php');

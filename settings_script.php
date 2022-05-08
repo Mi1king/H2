@@ -28,7 +28,7 @@ if ($new_pass != $new_pass1) {
     echo "<script>alert('Wrong new password')</script>";
 } else {
     if ($old_pass == $orig_pass) {
-        $query = "UPDATE  users SET password = '" . $new_pass . "' WHERE email = '" . $_SESSION['email'] . "'";
+        $query = "UPDATE  users SET password = '" . $new_pass . "' WHERE users.id = '" . $_SESSION['user_id'] . "'";
         mysqli_query($con, $query) or die($mysqli_error($con));
         echo "<script>alert('Updated Successfully')</script>";
         

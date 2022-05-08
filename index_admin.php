@@ -20,8 +20,15 @@ include 'head.php';
             </div>
             <div class="col-sm-9 col-lg-10">
                 <?php
+                
                 if (isset($_GET['orders'])) {
                     include("admin/orders.php");
+                }elseif (isset($_GET['cat'])) {
+                    include("admin/cat.php");
+                }elseif (isset($_GET['products'])) {
+                    include("admin/products.php");
+                }elseif (isset($_GET['users'])) {
+                    include("admin/users.php");
                 }
                 ?>
             </div>

@@ -3,15 +3,14 @@
         <div class="container">
             <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
                 <h4>LOGIN</h4>
-                <form role="form" action="login_submit.php" method="POST">
+                <form role="form" action="login_admin_submit.php" method="POST">
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email" name="email" required>
+                        <input type="text" class="form-control" placeholder="Admin" name="name" required>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="Password" name="password" required>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
-                    <a href='signup.php' class='btn btn-primary btn-block'>Register</a><br><br>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button><br><br>
                     <div>
                         <?php
                         if (isset($_GET['error'])) {
@@ -21,7 +20,7 @@
                     </div>
                 </form><br />
                 <dev>
-                    <a href="login_admin.php" class="btn btn-primary btn-block">Admin login</a>
+                    <a href="login.php" class="btn btn-primary btn-block">User login</a>
                 </dev>
             </div>
         </div>

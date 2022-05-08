@@ -50,5 +50,6 @@ WHERE users.id = '" .$user_id  . "'";
 mysqli_query($con, $query) or die($mysqli_error($con));
 
 $_SESSION['email'] = $new_email;
+$_SESSION['user_name'] = $new_name;
 
 header('location: settings.php');

@@ -19,15 +19,16 @@ $address = mysqli_real_escape_string($con, $_POST['address']);
 $dulpi_query = "SELECT id FROM users WHERE email='$email'";
 $dupli_result = mysqli_query($con, $dulpi_query) or die(mysqli_error($con));
 if (mysqli_num_rows($dupli_result) > 0) {
-    echo "This Email id already exist";
+    $error = "<span class='red'>This Email id already exist</span>";
+    header('location: signup.php?error=' . $error);
 } else {
     $insert_query = "INSERT INTO users (name, email, password, contact, city, address) VALUES('$name','$email','$password', '$contact','$city', '$address')";
     $insert_result = mysqli_query($con, $insert_query) or die(mysqli_error($con));
-    echo 'user successfully inserted';
+    
     $_SESSION['user_id'] = mysqli_insert_id($con);
-
+    
     if (isset($_SESSION['user_id'])) {
+        $_SESSION['email'] =$email;
         header('location:products.php');
     }
 }
-?>

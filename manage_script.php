@@ -1,10 +1,24 @@
 <?php
-
-// This page updates the user password
 require("includes/common.php");
 if (!isset($_SESSION['user_id'])) {
     header('location: login.php');
 }
+
+// get the orginal data
+$user_id = $_SESSION['user_id'];
+$query = "SELECT
+users.`name`,
+users.email,
+users.contact,
+users.city,
+users.address 
+FROM
+users 
+WHERE
+users.id = '$user_id'";
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
+$row = mysqli_fetch_array($result);
+
 
 $new_name = $_POST['new-name'];
 $new_name = mysqli_real_escape_string($con, $new_name);
@@ -23,6 +37,8 @@ $new_address = mysqli_real_escape_string($con, $new_address);
 
 
 $user_id =$_SESSION['user_id'] ;
+
+
 
 
 $query = "UPDATE  users SET name = '" . $new_name . "',

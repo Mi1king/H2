@@ -1,36 +1,82 @@
-<?php
-include 'head.php';
-?>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php">Health Hour</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <?php
-                    if (isset($_SESSION['email'])) {
-                    ?>
-                        <li><a href="messages.php"><span class="glyphicon glyphicon glyphicon-envelope"></span> Messages </a></li>
-                        <li><a href="history.php"><span class="glyphicon glyphicon-cloud"></span> History </a></li>
-                        <li><a href="orders.php"><span class="glyphicon glyphicon-briefcase"></span> Orders </a></li>
-                        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                        <li><a href="settings.php"><span class="glyphicon glyphicon-user"></span> Settings</a></li>
-                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    <?php
-                    } else {
-                    ?>
-                        <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <?php
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
+<nav class="navbar navbar-inverse navbar-fixed-side">
+
+    <div class="navbar-header">
+        <a href="index_admin.php" class="navbar-brand">Health Hour</a>
     </div>
+
+    </ul>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#p_cat">
+                    <i class="glyphicon glyphicon-th-list"></i> Categories
+                    <i class="glyphicon glyphicon-menu-down"></i>
+                </a>
+                <ul id="p_cat" class="collapse">
+                    <li>
+                        <a href="#"> Add Category </a>
+                    </li>
+                    <li>
+                        <a href="#"> View Categories </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- <li>
+                <a href="#" data-toggle="collapse" data-target="#supplier">
+                    <i class="fa fa-fw fa-globe"></i> Supplier
+                    <i class="glyphicon glyphicon-menu-down"></i>
+                </a>
+                <ul id="supplier" class="collapse">
+                    <li>
+                        <a href="#"> Insert Supplier </a>
+                    </li>
+                    <li>
+                        <a href="#"> View Supplier </a>
+                    </li>
+                </ul>
+            </li> -->
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#products">
+                    <i class="glyphicon glyphicon-briefcase"></i> Products
+                    <i class="glyphicon glyphicon-menu-down"></i>
+                </a>
+                <ul id="products" class="collapse">
+                    <li>
+                        <a href="#"> View Products </a>
+                    </li>
+                    <li>
+                        <a href="#"> View Statistics </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="index_admin.php?orders">
+                    <i class="glyphicon glyphicon-shopping-cart"></i> Orders
+                </a>
+                <ul id="orders" class="collapse">
+                    <li>
+                        <a href="#"> View Orders </a>
+                    </li>
+                    <li>
+                        <a href="#"> View Statistics </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-user"></i> Users
+                </a>
+            </li>
+
+            <li>
+                <a href="logout_admin.php">
+                    <i class="glyphicon glyphicon-off"></i> Log Out
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

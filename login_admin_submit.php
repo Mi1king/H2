@@ -13,8 +13,8 @@ if ($num == 0) {
   header('location: login_admin.php?error=' . $error);
 } else {  
   $row = mysqli_fetch_array($result);
-  $_SESSION['name'] = $row['name'];
+  $_SESSION['admin_name'] = $row['name'];
   $_SESSION['admin_id'] = $row['id'];
-  header('location: management.php');
+  header('location: index_admin.php');
 }
 ?>

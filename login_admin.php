@@ -2,12 +2,12 @@
 require 'includes/common.php';
 
 if (isset($_SESSION['email'])) {
-    header('location:management.php');
+    header('location:index_admin.php');
 }
 ?>
 
 <?php
-include 'nav_admin.php';
+include 'nav.php';
 ?>
 
 <?php

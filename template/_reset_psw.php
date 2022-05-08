@@ -1,6 +1,7 @@
 <div class="container-fluid" id="content">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4" id="settings-container">
+            
             <h4>Change Password</h4>
             <form action="settings_script.php" method="POST">
                 <div class="form-group">

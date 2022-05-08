@@ -29,15 +29,19 @@ WHERE
 	users.`password` AS PASSWORD, 
 	users.contact AS CONTACT, 
 	users.city AS CITY, 
-	users.address AS ADDRESS
+	users.address AS ADDRESS,
+    users.photo AS PHOTO
+    
 FROM
 	users
 WHERE
 	users.id = '$user_id'";
     $result_user = mysqli_query($con, $query_user)or die(mysqli_error($con));
     $name = mysqli_fetch_array($result_user);
-    echo '<div class="jumbotron user" id="user-jumbotron">
-        <h1>'.$name["NAME"].'</h1>
+    echo '
+    <div class="col-md-12 col-sm-6 home-feature">
+      <img class="rounded-circle" style="width: 20rem;" src='.$name["PHOTO"].'>
+        <h4>'.$name["NAME"].'</h4>
     </div>';
      
 echo "<div class='row'>
@@ -53,7 +57,7 @@ echo "<div class='row'>
              while ($row = mysqli_fetch_array($result)) {                                                             
                 echo '<div class="col-md-12 col-sm-6 home-feature">
                     <div class="thumbnail">
-                        <img src="img/' . $row["ID"] . '.jpg" />
+                        <img src="img/' . $row["ID"] . '.jpg" >
                         <div class="caption">
                             <h3> ' . $row["NAME"] . '      ' . $row["CATEGORY"] . '
                             
@@ -94,7 +98,8 @@ echo "		<div class='row mt-8'>
                     <li class='list-group-item'>City:".$name["CITY"]."</li>
                     <li class='list-group-item'>Address:".$name["ADDRESS"]."</li>
 				</ul>
-				<a href='reset_psw.php' class='card-link btn btn-primary'>Manage</a>
+				<a href='manage.php' class='card-link btn btn-primary'>Manage</a>
+                <a href='reset_psw.php' class='card-link btn btn-primary'>Reset Password</a>
 			</div>
 		</div>
 	</div>

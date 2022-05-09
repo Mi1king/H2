@@ -7,32 +7,57 @@
                 $id = 0;
                 $user_id = $_SESSION['user_id'];
                 $query = "SELECT
-                items.id, 
-                items.`name`, 
-                items.price, 
-                items.category, 
-                items.time, 
-                users_items.user_id, 
-                coaches.`name` AS coachName, 
-                coaches.id AS coachId, 
-                users_items.course_status
+                tem.order_id, 
+                tem.item_name, 
+                tem.coach_name, 
+                tem.item_id, 
+                tem.time, 
+                tem.price, 
+                tem.category, 
+                users.id AS coach_id, 
+                users.`name` AS coach_name, 
+                tem.course_status
             FROM
+                users
+                RIGHT JOIN
                 items
-                INNER JOIN
-                users_items
                 ON 
-                    items.id = users_items.item_id,
-                coaches
-            WHERE
-                users_items.`status` = 'Confirmed' AND
-                users_items.user_id = '$user_id'";
+                    users.id = items.coach_id
+                RIGHT JOIN
+                (
+                    SELECT
+                        users_items.id AS order_id, 
+                        items.`name` AS item_name, 
+                        users.`name` AS coach_name, 
+                        items.id AS item_id, 
+                        items.time, 
+                        items.price, 
+                        users_items.course_status, 
+                        items.category
+                    FROM
+                        users_items
+                        LEFT JOIN
+                        items
+                        ON 
+                            users_items.item_id = items.id
+                        LEFT JOIN
+                        users
+                        ON 
+                            items.coach_id = users.id
+                    WHERE
+                        users_items.`status` = 'Confirmed' AND
+                        users_items.user_id = '$user_id'
+                ) AS tem
+                ON 
+                    items.id = tem.item_id";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 if (mysqli_num_rows($result) >= 1) {
                 ?>
                     <thead>
                         <tr>
-                            <th>Item Number</th>
-                            <th>Item Name</th>
+                            <th>Order Id</th>
+                            <th>Course Id</th>
+                            <th>Course</th>
                             <th>Coach</th>
                             <th>Time</th>
                             <th>Price</th>
@@ -45,9 +70,10 @@
                         <?php
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>
-                            <td>" . "#" . $row["id"] . "</td>
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["name"] . "</a></td>
-                            <td> <a href='coach.php?id={$row['coachId']}'>" . $row["coachName"] . "</a></td>
+                            <td>" . "#" . $row["order_id"] . "</td>
+                            <td>" . "#" . $row["item_id"] . "</td>
+                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='img/" . $row["item_id"] . ".jpg'>" . $row["item_name"] . "</a></td>
+                            <td> <a href='coach.php?id={$row['coach_id']}'>" . $row["coach_name"] . "</a></td>
                             <td>" . $row["time"] . "</td>
                             <td>" . $row["price"] . "</td>";
                             if ($row["course_status"] == 'Finished') {
@@ -57,9 +83,9 @@
                             }
                             echo "
                             <td>
-                            <a href='course_time_change.php?id={$row['id']}' class='btn btn-primary btn-block'>Change Time</a>
-                            <a href='course.php?id={$row['id']}' class='btn btn-primary btn-block'>Start Course</a>
-                            <a href='order_delete.php?id={$row['id']}' class='btn btn-primary btn-block'>Delete</a>
+                            <a href='course_time_change.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Change Time</a>
+                            <a href='course.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Start Course</a>
+                            <a href='order_delete.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Delete</a>
                             </td>
                             </tr>";
                         }

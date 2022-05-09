@@ -70,7 +70,7 @@ $row = mysqli_fetch_array($result);
                      required="true">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Comfirm</button>
+                <button type="submit" class="btn btn-primary">Confirm</button>
                 <?php
                 if (isset($_GET['email_error'])) {
                     echo "<br><br><b class='red'>" . $_GET['error'] . "</b>";

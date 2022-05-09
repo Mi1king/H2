@@ -42,3 +42,15 @@ function refuse_certification($cer_id)
         `id` = '$cer_id';";
     mysqli_query($con, $query) or die(mysqli_error($con));
 }
+
+function item_create($name)
+{
+    require("includes/common.php");
+    // delete this certification
+    $query = "DELETE 
+    FROM
+        `ecommerce`.`certifications` 
+    WHERE
+        `id` = '$cer_id';";
+    mysqli_query($con, $query) or die(mysqli_error($con));
+}

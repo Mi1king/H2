@@ -46,7 +46,7 @@
             </li>
 
             <li>
-                <a href="logout_admin.php">
+                <a href="logout.php">
                     <i class="glyphicon glyphicon-off"></i> Log Out
                 </a>
             </li>

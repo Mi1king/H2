@@ -16,6 +16,7 @@ include 'head.php';
                 <?php
                 if (isset($_SESSION['email'])) {
                 ?>
+                    <li><a href="products_coach.php"><span class="glyphicon glyphicon glyphicon-envelope"></span> My Products </a></li>
                     <li><a href="messages.php"><span class="glyphicon glyphicon glyphicon-envelope"></span> Messages </a></li>
                     <li><a href="history.php"><span class="glyphicon glyphicon-cloud"></span> History </a></li>
                     <li><a href="orders.php"><span class="glyphicon glyphicon-briefcase"></span> Orders </a></li>

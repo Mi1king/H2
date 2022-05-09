@@ -4,19 +4,25 @@
             <table class="table table-striped">
                 <?php
                 $query = "SELECT
-                items.id,
-                items.`name`,
-                items.price,
-                items.category,
-                items.time 
+                items.id, 
+                items.`name`, 
+                items.price, 
+                items.category, 
+                items.time, 
+                users.`name` AS coach
             FROM
-                items";
+                items
+                INNER JOIN
+                users
+                ON 
+                    items.coach_id = users.id";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 ?>
                 <thead>
                     <tr>
                         <th>Index</th>
                         <th>Name</th>
+                        <th>Coach</th>
                         <th>Price</th>
                         <th>Category</th>
                         <th>Time</th>
@@ -31,9 +37,11 @@
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td>" . $row["name"] . "</td>
+                            <td>" . $row["coach"] . "</td>
                             <td>" . $row["price"] . "</td>
                             <td>" . $row["category"] . "</td>
                             <td>" . $row["time"] . "</td>
+                            
                             <td>
                                 <a href='item_del.php?id={$row['id']}' class='btn btn-primary btn-block'>Delete</a>
                             </td>

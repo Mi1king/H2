@@ -7,12 +7,13 @@ if (!isset($_SESSION['admin_name'])) {
 ?>
 
 <?php
-include 'head.php';
+include 'head-admin.php';
+
 ?>
 
-<div id="wrapper">
+<div id="wrapper " >
     <!-- #wrapper begin -->
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <div class="row">
             <div class="col-sm-3 col-lg-2">
                 <?php include("nav_admin.php"); ?>

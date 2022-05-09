@@ -40,7 +40,7 @@
                     echo "<tr>
                         <td></td>
                         <td>
-                            <a href='#' class='btn btn-primary btn-block'>Create category</a>   
+                            <a href='creat-cat.php' class='btn btn-primary btn-block'>Create category</a>   
                         </td>
                         <td></td>
                         <td></td>

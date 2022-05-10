@@ -3,13 +3,12 @@
         <div class="col-md-6 col-md-offset-3">
             <table class="table table-striped">
                 <?php
-                $sum = 0;
-                $id = 0;
                 $user_id = $_SESSION['user_id'];
                 $query = "SELECT
                 tem.order_id, 
                 tem.item_name, 
                 tem.coach_name, 
+                tem.coach_email, 
                 tem.item_id, 
                 tem.time, 
                 tem.price, 
@@ -29,6 +28,7 @@
                         users_items.id AS order_id, 
                         items.`name` AS item_name, 
                         users.`name` AS coach_name, 
+                        users.`email` AS coach_email, 
                         items.id AS item_id, 
                         items.time, 
                         items.price, 
@@ -79,22 +79,40 @@
                             echo $row['item_name'];
                             ?>
                             </a></td>
-                        <?php
-                            echo "<td> <a href='coach.php?id={$row['coach_id']}'>" . $row["coach_name"] . "</a></td>
-                            <td>" . $row["time"] . "</td>
-                            <td>" . $row["price"] . "</td>";
-                            if ($row["course_status"] == 'Finished') {
-                                echo "<td >" . $row["course_status"] . "</td>";
-                            } else {
-                                echo "<td  style='color: green;'>" . $row["course_status"] . "</td>";
-                            }
-                            echo "
+                            <?php
+                            ?>
                             <td>
-                            <a href='course_time_change.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Change Time</a>
-                            <a href='course.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Start Course</a>
-                            <a href='order_delete.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Delete</a>
+                                <li class='list-group-item'>User Name: <?php
+                                                                        echo $row['coach_name'] ?></li>
+                                <li class='list-group-item'>Email: <?php
+                                                                    echo $row['coach_email'] ?></li>
                             </td>
-                            </tr>";
+                            <td><?php
+                                echo $row['time'] ?></td>
+                            <td><?php
+                                echo $row['price'] ?></td>
+                            <?php
+                            if ($row["course_status"] == 'Finished') {
+                            ?>
+                                <td><?php
+                                    echo $row["course_status"] ?></td>
+                            <?php
+                            } else {
+                            ?>
+                                <td style='color: green;'>
+                                    <?php
+                                    echo $row["course_status"] ?></td>
+
+                                <td>
+                                    <a class='btn btn-primary btn-block'>Change Time</a>
+                                    <a href='course.php?id=<?php
+                                                            echo $row['item_id'] ?>' class='btn btn-primary btn-block'>Start Course</a>
+                                    <a href='order_delete.php?id=<?php
+                                                                    echo $row['item_id'] ?>' class='btn btn-primary btn-block'>Delete</a>
+                                </td>
+                                </tr>
+                        <?php
+                            }
                         }
                         ?>
                     </tbody>

@@ -14,26 +14,32 @@ if (check_if_in_history($item_id)) {
             <table class="table table-striped">
                 <?php
                 $query = "SELECT
-                items.id,
-                items.`name`,
-                items.price,
-                items.category,
-                items.time 
+                items.id, 
+                items.`name`, 
+                items.price, 
+                items.category, 
+                items.time, 
+                users.`name` AS coach_name, 
+                users.email AS coach_email
             FROM
-                items 
+                items
+                INNER JOIN
+                users
+                ON 
+                    items.coach_id = users.id
             WHERE
-                items.id = $item_id 
-            ORDER BY
-                items.id";
+                items.id = $item_id";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 if (mysqli_num_rows($result) >= 1) {
                 ?>
                     <thead>
                         <tr>
                             <th>Item Name</th>
+                            <th>Category</th>
                             <th>Image</th>
                             <th>Price</th>
                             <th>Time</th>
+                            <th>Coach</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,14 +49,27 @@ if (check_if_in_history($item_id)) {
                             $id .= $row["id"] . ", ";
                             echo "<tr>
                             <td> " . $row["name"] . "</td>
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'></a></td>
-                            <td>" . $row["price"] . "</td>
+                            <td> " . $row["category"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'";
+                        ?>
+                            onerror='this.src="img/sale-1149344_1920.jpg"'>
+                            <?php
+                            echo $row['name'];
+                            ?>
+                            </a></td>
+                        <?php
+                            echo "<td>" . $row["price"] . "</td>
                             <td>" . $row["time"] . "</td>
+                            <td> 
+                                Name:<br>" . $row["coach_name"] . "<br><br>
+                                Email:<br>" . $row["coach_email"] . "
+                            </td>
                             </tr>";
                         }
                         
                         //add to cart
                         echo "<tr>
+                        <td></td>
                         <td></td>
                         <td>";
                         if (check_if_added_to_cart($item_id)) {
@@ -66,6 +85,7 @@ if (check_if_in_history($item_id)) {
                         
                         //back to products page
                          echo "<tr>
+                        <td></td>
                         <td></td>
                         <td>";
                         echo '<a href="products.php" class="btn btn-primary btn-block">Back</a>';

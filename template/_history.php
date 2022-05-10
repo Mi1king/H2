@@ -39,8 +39,15 @@
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'>" . $row["name"] . "</a></td>
-                            <td>" . $row["price"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'";
+                        ?>
+                            onerror='this.src="img/sale-1149344_1920.jpg"'>
+                            <?php
+                            echo $row['name'];
+                            ?>
+                            </a></td>
+                        <?php
+                            echo "<td>" . $row["price"] . "</td>
                             <td>";
                             //  action
                             if (check_if_added_to_cart($row["id"])) {

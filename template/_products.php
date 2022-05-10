@@ -25,8 +25,13 @@
                 <div class='col-md-3 col-sm-6 home-feature'>
                     <div class='thumbnail'>
                         <?php
-                        echo "<a href='item.php?id={$row['id']}'><img src='img/" . $row['id'] . ".jpg'></a>";
+                        echo " <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'";
                         ?>
+                        onerror='this.src="img/sale-1149344_1920.jpg"'>
+                        <?php
+                        echo $row['name'];
+                        ?>
+                        </a>
                         <div class='caption'>
                             <h3> <?php echo $row['name']; ?></h3>
                             <p>Price:<?php echo $row['price']; ?></p>
@@ -82,8 +87,15 @@
                         $item_counter += 1;
                         echo "<div class='col-md-3 col-sm-6 home-feature'>
                     <div class='thumbnail'>
-                    <a href='item.php?id={$row['id']}'><img src='img/" . $row['id'] . ".jpg'></a>
-                        <div class='caption'>
+                    <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'";
+                ?>
+                        onerror='this.src="img/sale-1149344_1920.jpg"'>
+                        <?php
+                        echo $row['name'];
+                        ?>
+                        </a>
+                        <?php
+                        echo "<div class='caption'>
                             <h3> " . $row["name"] . "</h3>
                             <p>Price:" . $row["price"] . " </p>";
                         if (!isset($_SESSION['email'])) {

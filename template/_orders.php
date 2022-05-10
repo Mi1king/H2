@@ -72,8 +72,15 @@
                             echo "<tr>
                             <td>" . "#" . $row["order_id"] . "</td>
                             <td>" . "#" . $row["item_id"] . "</td>
-                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='img/" . $row["item_id"] . ".jpg'>" . $row["item_name"] . "</a></td>
-                            <td> <a href='coach.php?id={$row['coach_id']}'>" . $row["coach_name"] . "</a></td>
+                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='img/" . $row["item_id"] . ".jpg'";
+                        ?>
+                            onerror='this.src="img/sale-1149344_1920.jpg"'>
+                            <?php
+                            echo $row['item_name'];
+                            ?>
+                            </a></td>
+                        <?php
+                            echo "<td> <a href='coach.php?id={$row['coach_id']}'>" . $row["coach_name"] . "</a></td>
                             <td>" . $row["time"] . "</td>
                             <td>" . $row["price"] . "</td>";
                             if ($row["course_status"] == 'Finished') {

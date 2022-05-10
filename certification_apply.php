@@ -17,7 +17,7 @@ certifications.user_id = '$user_id'";
 $dupli_result = mysqli_query($con, $dulpi_query) or die(mysqli_error($con));
 if (mysqli_num_rows($dupli_result) > 0) {
     $error = "<span class='red'>Already applied with certification code: " . mysqli_fetch_array($dupli_result)['certification_code'] . "</span>";
-    header('location: settings.php?error=' . $error);
+    // header('location: certification_apply.php?error=' . $error);
 }
 
 include 'nav.php';

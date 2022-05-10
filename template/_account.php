@@ -87,16 +87,18 @@ WHERE
 			<ul class='list-group list-group-flush'>
 				<li class='list-group-item'>
 					Profile photo:
-					<?php
-					echo "<img class='rounded-circle' style='width: 8rem;' src=" . $name["PHOTO"] . "></li>
-					<li class='list-group-item'>User Name:" . $name["NAME"] . "</li>
-					<li class='list-group-item'>Email:" . $name["EMAIL"] . "</li>
-					<li class='list-group-item'>Contact:" . $name["CONTACT"] . "</li>
-                    <li class='list-group-item'>City:" . $name["CITY"] . "</li>
-                    <li class='list-group-item'>Address:" . $name["ADDRESS"] . "</li>";
-					?>
+					<form method="post" enctype="multipart/form-data" action="upload.php">
+						<img type="file" name="image" class='rounded-circle' style='width: 8rem;' src=<?php echo $name["PHOTO"] ?>>
+						<input type="submit" name="upload" value="Upload">
+					</form>
+				</li>
+				<li class='list-group-item'>User Name: <?php echo $name["NAME"] ?></li>
+				<li class='list-group-item'>Email: <?php echo $name["EMAIL"] ?></li>
+				<li class='list-group-item'>Contact: <?php echo $name["CONTACT"] ?></li>
+				<li class='list-group-item'>City: <?php echo $name["CITY"] ?></li>
+				<li class='list-group-item'>Address: <?php echo $name["ADDRESS"] ?></li>
 			</ul>
-			<a href='manage.php' class='card-link btn btn-primary'>Manage</a>
+			<a href='manage.php' class='card-link btn btn-primary'>Edit profile</a>
 			<a href='certification_apply.php' class='card-link btn btn-primary'>Apply to be a coach</a>
 			<a href='reset_psw.php' class='card-link btn btn-primary'>Reset Password</a>
 		</div><br />

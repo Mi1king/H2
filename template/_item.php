@@ -61,12 +61,12 @@ if (check_if_in_history($item_id)) {
                             echo "<td>" . $row["price"] . "</td>
                             <td>" . $row["time"] . "</td>
                             <td> 
-                                Name:<br>" . $row["coach_name"] . "<br><br>
-                                Email:<br>" . $row["coach_email"] . "
+                             <li class='list-group-item'>User Name:" . $row["coach_name"] . "</li>
+                             <li class='list-group-item'>Email:" . $row["coach_email"] . "</li>
                             </td>
                             </tr>";
                         }
-                        
+
                         //add to cart
                         echo "<tr>
                         <td></td>
@@ -82,9 +82,9 @@ if (check_if_in_history($item_id)) {
                         <td></td>
                         <td></td>
                         </tr>";
-                        
+
                         //back to products page
-                         echo "<tr>
+                        echo "<tr>
                         <td></td>
                         <td></td>
                         <td>";

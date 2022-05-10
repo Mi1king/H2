@@ -12,46 +12,40 @@ if (isset($_GET['sold'])) {
             <div>
                 <a href='products_coach.php?sold=<?php
                                                     echo ($sold == 'sold') ? 'unsold' : 'sold';
-                                                    ?>' class='btn btn-primary btn-block'>Unsold/Sold</a>
+                                                    ?>' class='btn btn-primary btn-block'><i class='glyphicon glyphicon-retweet'></i> Unsold/Sold</a>
             </div><br><br>
 
             <?php
-            if ($sold == 'sold') {
+            if ($sold == 'sold') { // show all sold products
 
             ?>
                 <table class="table table-striped">
                     <?php
                     $user_id = $_SESSION['user_id'];
                     $query = "SELECT
-                users_items.item_id, 
-                users_items.`status`, 
-                users_items.course_status, 
-                users.`name`, 
-                users.email, 
-                items.`name` AS 'items_name', 
-                items.price, 
-                items.category, 
-                items.time
-            FROM
-                users_items
-                INNER JOIN
-                users
-                ON 
-                    users_items.user_id = users.id
-                INNER JOIN
-                items
-                ON 
-                    users_items.item_id = items.id
-            WHERE
-                users_items.item_id IN ((
-                SELECT
-                    users_items.item_id 
+                    items.id AS item_id, 
+                    items.`name` AS items_name, 
+                    items.category, 
+                    items.price, 
+                    items.time, 
+                    users_items.course_status, 
+                    users.`name` AS coach_name, 
+                    users.email AS coach_email
                 FROM
-                    users_items 
+                    items
+                    LEFT JOIN
+                    users_items
+                    ON 
+                        items.id = users_items.item_id
+                    LEFT JOIN
+                    users
+                    ON 
+                        users_items.user_id = users.id
                 WHERE
-                    users_items.user_id = '$user_id' 
-                AND users_items.teach = '1' 
-                ))";
+                    items.coach_id = '$user_id'AND
+                    users_items.`status` = 'Confirmed'
+                ORDER BY
+                    item_id DESC";
                     $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
                     ?>
@@ -79,8 +73,8 @@ if (isset($_GET['sold'])) {
                             <td>" . $row["time"] . "</td>
                             <td>" . $row["course_status"] . "</td>
                             <td>
-                                <li class='list-group-item'>User Name:" . $row["name"] . "</li>
-					            <li class='list-group-item'>Email:" . $row["email"] . "</li>
+                                <li class='list-group-item'>User Name:" . $row["coach_name"] . "</li>
+					            <li class='list-group-item'>Email:" . $row["coach_email"] . "</li>
                             </td>
                           
                             <td>
@@ -96,7 +90,7 @@ if (isset($_GET['sold'])) {
                 ?>
                 </table>
             <?php
-            } else {
+            } else { // show all unsold products
             ?>
                 <table class="table table-striped">
                     <?php
@@ -109,8 +103,18 @@ if (isset($_GET['sold'])) {
                     items.time
                 FROM
                     items
+                    LEFT JOIN
+                    users_items
+                    ON 
+                        items.id = users_items.item_id
                 WHERE
-                    items.coach_id = '$user_id'";
+                    items.coach_id = '$user_id' AND
+                    (
+                        users_items.`status` IS NULL OR
+                        users_items.`status` <> 'Confirmed'
+                    )
+                ORDER BY
+                    id DESC";
                     $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
                     ?>

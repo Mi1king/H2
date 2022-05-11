@@ -10,6 +10,7 @@
 	items.price, 
 	items.category AS CATEGORY, 
 	items.time AS TIME, 
+	items.image AS IT_Photo,
 	users_items.`status`, 
 	users_items.user_id
 FROM
@@ -51,7 +52,8 @@ WHERE
 							while ($row = mysqli_fetch_array($result)) {
 								echo '<div class="col-md-12 col-sm-6 home-feature">
                     <div class="thumbnail">
-                        <img src="img/' . $row["ID"] . '.jpg" >
+                        <img src="' . $row["IT_Photo"] . '" >
+						
                         <div class="caption">
                             <h3> ' . $row["NAME"] . '      ' . $row["CATEGORY"] . '
                             

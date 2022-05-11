@@ -70,7 +70,7 @@ if (isset($_GET['sold'])) {
                                 echo "<tr>
                             <td>" . "#" . $row["item_id"] . "</td>
                             <td>" . $row["items_name"] . "</td>
-                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='" . $row["items_image"] . ".jpg'";
+                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='" . $row["items_image"] . "'";
                         ?>
                                 onerror='this.src="img/sale-no-image.jpg"'>
                                 </a></td><?php echo "
@@ -153,7 +153,7 @@ if (isset($_GET['sold'])) {
                                 echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td>" . $row["name"] . "</td>
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["items_image"] . ".jpg'";
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["items_image"] . "'";
                         ?>
                                 onerror='this.src="img/sale-no-image.jpg"'>
                                 </a></td><?php echo "

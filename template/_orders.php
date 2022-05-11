@@ -74,13 +74,9 @@
                             echo "<tr>
                             <td>" . "#" . $row["order_id"] . "</td>
                             <td>" . "#" . $row["item_id"] . "</td>
-<<<<<<< HEAD
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
-=======
-                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
->>>>>>> 4d59dda21a8f34b48eeb3f3ae24ff45d6f0f769d
+                            <td> <a href='item.php?id={$row['category']}' class='thumbnail'><img src='" . $row["image"] . "'";
                             ?>
-                            onerror='this.src="img/sale-no-image.jpg"'>
+                            onerror='this.src="img/sale-1149344_1920.jpg"'>
                             <?php
                             echo $row['item_name'];
                             ?>

@@ -49,7 +49,7 @@ if (check_if_in_history($item_id)) {
                         while ($row = mysqli_fetch_array($result)) {
                             $id .= $row["id"] . ", ";
                             echo "<tr>
-                            <td> " . $row["image"] . "</td>
+                            <td> " . $row["name"] . "</td>
                             <td> " . $row["category"] . "</td>
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                         ?>

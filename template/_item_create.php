@@ -15,6 +15,7 @@
                     <thead>
                         <tr>
                             <th>Product Name</th>
+                            <th>Product Picture</th>
                             <th>Category</th>
                             <th>Price</th>
                             <th>Time</th>
@@ -24,6 +25,9 @@
                         <tr>
                             <td>
                                 <input class="form-control" name="name" placeholder="Name" required="true">
+                            </td>
+                            <td>
+                                <input class="form-control" type="file" name="image">
                             </td>
                             <td>
                                 <select class="form-control" name="category" required="true">

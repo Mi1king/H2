@@ -50,9 +50,9 @@ if (check_if_in_history($item_id)) {
                             echo "<tr>
                             <td> " . $row["name"] . "</td>
                             <td> " . $row["category"] . "</td>
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='img/" . $row["id"] . ".jpg'";
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
                         ?>
-                            onerror='this.src="img/sale-1149344_1920.jpg"'>
+                        onerror='this.src="img/sale-1149344_1920.jpg"'>
                             <?php
                             echo $row['name'];
                             ?>
@@ -81,6 +81,7 @@ if (check_if_in_history($item_id)) {
                         echo "</td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         </tr>";
 
                         //back to products page
@@ -90,6 +91,7 @@ if (check_if_in_history($item_id)) {
                         <td>";
                         echo '<a href="products.php" class="btn btn-primary btn-block">Back</a>';
                         echo "</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         </tr>";

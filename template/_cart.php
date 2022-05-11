@@ -28,10 +28,7 @@
                             <td>" . "#" . $row["id"] . "</td>
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["Image"] . "'";
                         ?>
-                        onerror='this.src="img/sale-1149344_1920.jpg"'>
-                            <?php
-                            echo $row['Name'];
-                            ?>
+                        onerror='this.src="img/sale-no-image.jpg"'>
                             </a></td>
                         <?php
                             echo "<td>" . $row["Price"] . "</td>

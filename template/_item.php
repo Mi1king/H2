@@ -54,9 +54,6 @@ if (check_if_in_history($item_id)) {
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                         ?>
                         onerror='this.src="img/sale-no-image.jpg"'>
-                            <?php
-                            echo $row['name'];
-                            ?>
                             </a></td>
                         <?php
                             echo "<td>" . $row["price"] . "</td>

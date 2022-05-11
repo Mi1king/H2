@@ -76,10 +76,7 @@
                             <td>" . "#" . $row["item_id"] . "</td>
                             <td> <a href='item.php?id={$row['category']}' class='thumbnail'><img src='" . $row["image"] . "'";
                             ?>
-                            onerror='this.src="img/sale-1149344_1920.jpg"'>
-                            <?php
-                            echo $row['item_name'];
-                            ?>
+                            onerror='this.src="img/sale-no-image.jpg"'>
                             </a></td>
                             <?php
                             ?>

@@ -29,9 +29,6 @@
                         echo " <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                         ?>
                         onerror='this.src="img/sale-no-image.jpg"'>
-                        <?php
-                        echo $row['name'];
-                        ?>
                         </a>
                         <div class='caption'>
                             <h3> <?php echo $row['name']; ?></h3>
@@ -93,9 +90,6 @@
                     
                 ?>
                         onerror='this.src="img/sale-no-image.jpg"'>
-                        <?php
-                        echo $row['name'];
-                        ?>
                         </a>
                         <?php
                         echo "<div class='caption'>

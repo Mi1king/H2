@@ -69,8 +69,8 @@
         $category_result = mysqli_query($con, $category_query) or die(mysqli_error($con));
         if (mysqli_num_rows($category_result) >= 1) {
             while ($category = mysqli_fetch_array($category_result)) {
-                echo '<div class="row text-center" id="' . $category["category"] . '">
-            <h3>' . $category["category"] . '</h3>';
+                echo '<div class="more2 text-center" id="' . $category["category"] . '"
+            <hr><h1>' . $category["category"] . '</h1></div>';
 
                 $query = "SELECT
                             items.id, 
@@ -117,7 +117,7 @@
                 </div>';
                     }
                     if ($item_counter = 3) {  ?>
-                        <div class=' col-md-3 col-sm-6 home-feature'>
+                        <div class=' more1'>
                             <a href=<?php
                                     echo "'products.php?cat={$category['category']}'";
                                     ?>> <i class="glyphicon glyphicon-menu-right"></i> Find more

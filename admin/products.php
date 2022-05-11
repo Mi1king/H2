@@ -39,7 +39,7 @@
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td>" . $row["name"] . "</td>
-                            <td> <a class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+                            <td> <a class='thumbnail'><img src='" . $row["image"] . "'";
                     ?>
                             onerror='this.src="img/sale-no-image.jpg"'>
                             </a></td><?php echo "

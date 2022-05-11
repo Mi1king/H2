@@ -69,8 +69,19 @@ if (isset($_GET['sold'])) {
                             <td>" . "#" . $row["item_id"] . "</td>
                             <td>" . $row["items_name"] . "</td>
                             <td>" . $row["category"] . "</td>
-                            <td>" . $row["price"] . "</td>
-                            <td>" . $row["time"] . "</td>
+                            <td>" . $row["price"] . "</td>";
+
+                        ?>
+                                <td>
+
+                                    <form action="course_time_update_script.php" method="post">
+                                        <input value=<?php echo $row['time'] ?> name="course_time" /><br><br>
+                                        <input type="hidden" value=<?php echo $row['item_id'] ?> name="item_id" style="none" />
+                                        <input type="submit" class="btn btn-primary btn-block" value="Change time">
+                                    </form>
+                                </td>
+                            <?php
+                                echo "
                             <td>" . $row["course_status"] . "</td>
                             <td>
                                 <li class='list-group-item'>User Name:" . $row["coach_name"] . "</li>
@@ -78,12 +89,11 @@ if (isset($_GET['sold'])) {
                             </td>
                           
                             <td>
-                            <a href='course_time_change.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Change Time</a>
                             <a href='course.php?id={$row['item_id']}' class='btn btn-primary btn-block'>Start Course</a>
                             </td>
                             </tr>";
                             }
-                        ?>
+                            ?>
                     </tbody>
                 <?php
                         }

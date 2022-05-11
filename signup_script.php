@@ -24,11 +24,12 @@ if (mysqli_num_rows($dupli_result) > 0) {
 } else {
     $insert_query = "INSERT INTO users (name, email, password, contact, city, address) VALUES('$name','$email','$password', '$contact','$city', '$address')";
     $insert_result = mysqli_query($con, $insert_query) or die(mysqli_error($con));
-    
+
     $_SESSION['user_id'] = mysqli_insert_id($con);
-    
+    $_SESSION['user_name'] = $name;
+
     if (isset($_SESSION['user_id'])) {
-        $_SESSION['email'] =$email;
+        $_SESSION['email'] = $email;
         header('location:products.php');
     }
 }

@@ -86,10 +86,11 @@ WHERE
 			</div>
 			<ul class='list-group list-group-flush'>
 				<li class='list-group-item'>
-					Profile photo:
+					<label>Profile photo:</label>
+					<img class='rounded-circle' style='width: 8rem;' src=<?php echo $name["PHOTO"] ?>>
 					<form method="post" enctype="multipart/form-data" action="upload.php">
-						<img type="file" name="image" class='rounded-circle' style='width: 8rem;' src=<?php echo $name["PHOTO"] ?>>
-						<input type="submit" name="upload" value="Upload">
+						<input type="file" name="image">
+						<input type="submit" name="upload" value="Submit">
 					</form>
 				</li>
 				<li class='list-group-item'>User Name: <?php echo $name["NAME"] ?></li>

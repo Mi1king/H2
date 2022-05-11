@@ -1,3 +1,21 @@
+<?php
+
+if (isset($_POST['change_time'])) {
+    change_time();
+}
+$editable = 'f';
+$time;
+function change_time()
+{
+    global $editable;
+    if ($editable == 'f') {
+        $editable = 't';
+    } else {
+        $editable = 'f';
+    }
+}
+?>
+
 <div class="container-fluid" id="content">
     <div class="row decor_bg">
         <div class="col-md-6 col-md-offset-3">
@@ -87,8 +105,18 @@
                                 <li class='list-group-item'>Email: <?php
                                                                     echo $row['coach_email'] ?></li>
                             </td>
-                            <td><?php
-                                echo $row['time'] ?></td>
+                            <td>
+                                <!-- <form method="post">
+                                    <input type="submit" name="change_time" class="btn btn-primary btn-block" value="Change Time" />
+                                </form> -->
+
+                                <?php
+                                echo $editable;
+                                if ($editable == 't') {
+                                    echo $row['time'];
+                                }
+                                ?>
+                            </td>
                             <td><?php
                                 echo $row['price'] ?></td>
                             <?php
@@ -104,7 +132,15 @@
                                     echo $row["course_status"] ?></td>
 
                                 <td>
-                                    <a class='btn btn-primary btn-block'>Change Time</a>
+                                    <form method="post">
+                                        <input type="submit" name="change_time" class="btn btn-primary btn-block" value=<?php
+                                                                                                                        if ($editable == 't') {
+                                                                                                                            echo "Save";
+                                                                                                                        } else
+                                                                                                                            echo "Change Time";
+                                                                                                                        ?> />
+                                    </form>
+                                    <!-- <button class='btn btn-primary btn-block'>Change Time</button> -->
                                     <a href='course.php?id=<?php
                                                             echo $row['item_id'] ?>' class='btn btn-primary btn-block'>Start Course</a>
                                     <a href='order_delete.php?id=<?php

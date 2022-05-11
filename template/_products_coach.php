@@ -28,6 +28,7 @@ if (isset($_GET['sold'])) {
                     items.category, 
                     items.price, 
                     items.time, 
+                    items.image AS items_image, 
                     users_items.course_status, 
                     users.`name` AS coach_name, 
                     users.email AS coach_email
@@ -52,7 +53,8 @@ if (isset($_GET['sold'])) {
                     <thead>
                         <tr>
                             <th>Product Index</th>
-                            <th>Product Name</th>
+                            <th>Name</th>
+                            <th>Picture</th>
                             <th>Category</th>
                             <th>Price</th>
                             <th>Time</th>
@@ -68,10 +70,14 @@ if (isset($_GET['sold'])) {
                                 echo "<tr>
                             <td>" . "#" . $row["item_id"] . "</td>
                             <td>" . $row["items_name"] . "</td>
+                            <td> <a href='item.php?id={$row['item_id']}' class='thumbnail'><img src='" . $row["items_image"] . ".jpg'";
+                        ?>
+                                onerror='this.src="img/sale-no-image.jpg"'>
+                                </a></td><?php echo "
                             <td>" . $row["category"] . "</td>
                             <td>" . $row["price"] . "</td>";
 
-                        ?>
+                                            ?>
                                 <td>
 
                                     <form action="course_time_update_script.php" method="post">
@@ -110,7 +116,8 @@ if (isset($_GET['sold'])) {
                     items.`name`, 
                     items.price, 
                     items.category, 
-                    items.time
+                    items.time,
+                    items.image AS items_image
                 FROM
                     items
                     LEFT JOIN
@@ -131,7 +138,8 @@ if (isset($_GET['sold'])) {
                     <thead>
                         <tr>
                             <th>Product Index</th>
-                            <th>Product Name</th>
+                            <th>Name</th>
+                            <th>Picture</th>
                             <th>Category</th>
                             <th>Price</th>
                             <th>Time</th>
@@ -145,6 +153,10 @@ if (isset($_GET['sold'])) {
                                 echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td>" . $row["name"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["items_image"] . ".jpg'";
+                        ?>
+                                onerror='this.src="img/sale-no-image.jpg"'>
+                                </a></td><?php echo "
                             <td>" . $row["category"] . "</td>
                             <td>" . $row["price"] . "</td>
                             <td>" . $row["time"] . "</td>
@@ -152,8 +164,8 @@ if (isset($_GET['sold'])) {
                             <a href='item_del.php?id={$row['id']}&pre_page=products_coach.php' class='btn btn-primary btn-block'>Delete</a>
                             </td>
                             </tr>";
-                            }
-                        ?>
+                                        }
+                                            ?>
                     </tbody>
                 <?php
                         }

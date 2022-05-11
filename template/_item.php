@@ -16,6 +16,7 @@ if (check_if_in_history($item_id)) {
                 $query = "SELECT
                 items.id, 
                 items.`name`, 
+                items.`image`, 
                 items.price, 
                 items.category, 
                 items.time, 

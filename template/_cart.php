@@ -7,7 +7,7 @@
                 $sum = 0;
                 $id = 0;
                 $user_id = $_SESSION['user_id'];
-                $query = "SELECT items.price AS Price, items.id, items.name AS Name FROM users_items JOIN items ON users_items.item_id = items.id WHERE users_items.user_id='$user_id' and status='Added to cart'";
+                $query = "SELECT items.price AS Price, items.id, items.name, items.image AS Name FROM users_items JOIN items ON users_items.item_id = items.id WHERE users_items.user_id='$user_id' and status='Added to cart'";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 if (mysqli_num_rows($result) >= 1) {
                 ?>

@@ -11,6 +11,7 @@
                 tem.coach_email, 
                 tem.item_id, 
                 tem.time, 
+                tem.image, 
                 tem.price, 
                 tem.category, 
                 users.id AS coach_id, 
@@ -32,6 +33,7 @@
                         items.id AS item_id, 
                         items.time, 
                         items.price, 
+                        items.image, 
                         users_items.course_status, 
                         items.category
                     FROM

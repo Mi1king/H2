@@ -10,6 +10,7 @@
                 $query = "SELECT
                 items.id, 
                 items.`name`, 
+                items.`image`, 
                 items.price
             FROM
                 item_history

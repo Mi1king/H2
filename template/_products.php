@@ -12,6 +12,7 @@
         $query = "SELECT
                             items.id, 
                             items.price, 
+                            items.image, 
                             items.`name`
                         FROM
                             items

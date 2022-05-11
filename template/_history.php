@@ -30,6 +30,7 @@
                         <tr>
                             <th>Item Number</th>
                             <th>Item Name</th>
+                            <th>Item Picture</th>
                             <th>Price</th>
                             <th>Action</th>
                             <th></th>
@@ -40,12 +41,14 @@
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
+<<<<<<< HEAD
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
+=======
+                            <td>" . $row["name"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+>>>>>>> 4d59dda21a8f34b48eeb3f3ae24ff45d6f0f769d
                         ?>
-                        onerror='this.src="img/sale-1149344_1920.jpg"'>
-                            <?php
-                            echo $row['name'];
-                            ?>
+                        onerror='this.src="img/sale-no-image.jpg"'>
                             </a></td>
                         <?php
                             echo "<td>" . $row["price"] . "</td>

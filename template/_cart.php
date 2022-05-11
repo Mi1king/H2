@@ -7,7 +7,17 @@
                 $sum = 0;
                 $id = 0;
                 $user_id = $_SESSION['user_id'];
-                $query = "SELECT items.price AS Price, items.id, items.name, items.image AS Name FROM users_items JOIN items ON users_items.item_id = items.id WHERE users_items.user_id='$user_id' and status='Added to cart'";
+                $query = "SELECT
+                items.price AS Price,
+                items.id,
+                items.name,
+                items.image
+            FROM
+                users_items
+                JOIN items ON users_items.item_id = items.id 
+            WHERE
+                users_items.user_id = '$user_id' 
+                AND STATUS = 'Added to cart'";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 if (mysqli_num_rows($result) >= 1) {
                 ?>
@@ -15,6 +25,7 @@
                         <tr>
                             <th>Item Number</th>
                             <th>Item Name</th>
+                            <th>Item Picture</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
@@ -26,12 +37,14 @@
                             $id .= $row["id"] . ", ";
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
+<<<<<<< HEAD
                             <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
+=======
+                            <td>" . "#" . $row["name"] . "</td>
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+>>>>>>> 4d59dda21a8f34b48eeb3f3ae24ff45d6f0f769d
                         ?>
-                        onerror='this.src="img/sale-1149344_1920.jpg"'>
-                            <?php
-                            echo $row['Name'];
-                            ?>
+                        onerror='this.src="img/sale-no-image.jpg"'>
                             </a></td>
                         <?php
                             echo "<td>" . $row["Price"] . "</td>
@@ -44,6 +57,7 @@
                         echo "<tr>
                         <td></td>
                         <td>Total</td>
+                        <td></td>
                         <td>" . $sum . "</td>
                         <td>
                         <a href='success.php?itemsid=" . $id . "' class='btn btn-primary btn-block'>Create Order</a>

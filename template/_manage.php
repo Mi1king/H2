@@ -18,15 +18,6 @@ $row = mysqli_fetch_array($result);
 <div class="container-fluid" id="content">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4" id="settings-container">
-            <!-- <form method="post" enctype="multipart/form-data" action="upload.php">
-                <div class="form-group">
-                    <label>User Image</label>
-                    <input type="file" name="image">
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="upload" value="Submit">
-                </div>
-            </form> -->
             <form action="manage_script.php" method="POST">
                 <h6>Name</h6>
                 <div class="form-group">

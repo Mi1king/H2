@@ -49,7 +49,7 @@
                     </tbody>
                 </table>
                 <div>
-                    <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+                    <button type="submit" name="upload" class="btn btn-primary btn-block">Confirm</button>
                 </div>
             </form>
         </div>

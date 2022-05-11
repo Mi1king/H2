@@ -6,6 +6,7 @@
                 $query = "SELECT
                 items.id, 
                 items.`name`, 
+                items.image, 
                 items.price, 
                 items.category, 
                 items.time, 
@@ -22,6 +23,7 @@
                     <tr>
                         <th>Index</th>
                         <th>Name</th>
+                        <th>Picture</th>
                         <th>Coach</th>
                         <th>Price</th>
                         <th>Category</th>
@@ -37,6 +39,10 @@
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
                             <td>" . $row["name"] . "</td>
+                            <td> <a class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+                    ?>
+                            onerror='this.src="img/sale-no-image.jpg"'>
+                            </a></td><?php echo "
                             <td>" . $row["coach"] . "</td>
                             <td>" . $row["price"] . "</td>
                             <td>" . $row["category"] . "</td>
@@ -46,9 +52,9 @@
                                 <a href='item_del.php?id={$row['id']}' class='btn btn-primary btn-block'>Delete</a>
                             </td>
                             </tr>";
-                        }
-                    }
-                    ?>
+                                    }
+                                }
+                                        ?>
                 </tbody>
                 <?php
                 ?>

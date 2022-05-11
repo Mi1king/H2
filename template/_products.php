@@ -28,7 +28,7 @@
                         <?php
                         echo " <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                         ?>
-                        onerror='this.src="img/sale-1149344_1920.jpg"'>
+                        onerror='this.src="img/sale-no-image.jpg"'>
                         <?php
                         echo $row['name'];
                         ?>
@@ -92,7 +92,7 @@
                     <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                     
                 ?>
-                        onerror='this.src="img/sale-1149344_1920.jpg"'>
+                        onerror='this.src="img/sale-no-image.jpg"'>
                         <?php
                         echo $row['name'];
                         ?>

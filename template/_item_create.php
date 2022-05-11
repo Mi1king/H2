@@ -1,7 +1,7 @@
 <div class="container-fluid" id="content">
     <div class="row decor_bg">
         <div class="col-md-6 col-md-offset-3">
-            <form action="item_create_script.php" method="POST">
+            <form action="item_create_script.php" enctype="multipart/form-data" method="POST">
                 <table class="table table-striped">
                     <?php
                     $user_id = $_SESSION['user_id'];

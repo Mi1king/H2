@@ -26,7 +26,7 @@
                 <div class='col-md-3 col-sm-6 home-feature'>
                     <div class='thumbnail'>
                         <?php
-                        echo " <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+                        echo " <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                         ?>
                         onerror='this.src="img/sale-1149344_1920.jpg"'>
                         <?php
@@ -89,7 +89,8 @@
                         $item_counter += 1;
                         echo "<div class='col-md-3 col-sm-6 home-feature'>
                     <div class='thumbnail'>
-                    <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+                    <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
+                    
                 ?>
                         onerror='this.src="img/sale-1149344_1920.jpg"'>
                         <?php

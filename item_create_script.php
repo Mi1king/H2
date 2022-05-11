@@ -9,9 +9,12 @@ $user_id = $_SESSION['user_id'];
 $name = mysqli_real_escape_string($con,  $_POST['name']);
 
 $file = $_FILES['image'];
+
 $ext = strrchr($file['name'], '.');
+
 $newName = mt_rand(0000, 9999).time().$ext;
 $path = 'img/'.$newName;
+
 $info = move_uploaded_file($file['tmp_name'], $path);
 
 $category = mysqli_real_escape_string($con,  $_POST['category']);

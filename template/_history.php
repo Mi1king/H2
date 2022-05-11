@@ -40,7 +40,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>
                             <td>" . "#" . $row["id"] . "</td>
-                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . ".jpg'";
+                            <td> <a href='item.php?id={$row['id']}' class='thumbnail'><img src='" . $row["image"] . "'";
                         ?>
                         onerror='this.src="img/sale-1149344_1920.jpg"'>
                             <?php
